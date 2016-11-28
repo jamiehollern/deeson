@@ -1,0 +1,11 @@
+<?php
+/* @file
+ * Install file for ddc_system.
+ */
+
+/**
+ * Delete the default page type.
+ */
+function ddc_system_install() {
+  node_type_delete('page');
+}
