@@ -43,6 +43,7 @@ $conf['master_modules'] = array(
     'ddc_article',
     'ddc_block',
     'ddc_common',
+    'ddc_content_author',
     'ddc_filter',
     'ddc_homepage',
     'ddc_image',

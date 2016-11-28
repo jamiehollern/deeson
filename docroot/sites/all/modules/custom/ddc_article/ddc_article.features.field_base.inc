@@ -10,15 +10,50 @@
 function ddc_article_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
-  $field_bases['body'] = array(
+  // Exported field_base: 'field_author_information'
+  $field_bases['field_author_information'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
-    'entity_types' => array(
-      0 => 'node',
+    'entity_types' => array(),
+    'field_name' => 'field_author_information',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
     ),
-    'field_name' => 'body',
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'direction' => 'ASC',
+          'property' => 'title',
+          'type' => 'property',
+        ),
+        'target_bundles' => array(
+          'content_author' => 'content_author',
+        ),
+      ),
+      'target_type' => 'content_author',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_subtitle'
+  $field_bases['field_subtitle'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_subtitle',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -26,57 +61,11 @@ function ddc_article_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_with_summary',
-  );
-
-  // Exported field_base: 'field_image'
-  $field_bases['field_image'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_image',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
     'settings' => array(
-      'default_image' => FALSE,
-      'uri_scheme' => 'public',
+      'max_length' => 255,
     ),
     'translatable' => 0,
-    'type' => 'image',
-  );
-
-  // Exported field_base: 'field_tags'
-  $field_bases['field_tags'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_tags',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'text',
   );
 
   return $field_bases;
