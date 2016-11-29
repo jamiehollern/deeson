@@ -17,4 +17,21 @@ article {
     margin-bottom: 20px;
     border-radius: 3px;
   }
+
+}
+
+.view-article-listing {
+
+  .views-row {
+    border-bottom: #AAA solid 1px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    min-height: 250px;
+
+    .views-field-field-image {
+      margin: 0 10px 10px 0;
+    }
+
+  }
+
 }
