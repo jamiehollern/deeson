@@ -49,6 +49,9 @@ $conf['master_modules'] = array(
     'ddc_image',
     'ddc_permission',
     'ddc_system',
+
+    // Theme.
+    'ddc_theme',
   ),
   'local' => $master_local_modules,
   'dev' => $master_local_modules,
