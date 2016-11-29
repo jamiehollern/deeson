@@ -1,0 +1,10 @@
+name = ddc_article_list
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = ddc_article
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = article_listing
+project path = sites/all/modules/custom
