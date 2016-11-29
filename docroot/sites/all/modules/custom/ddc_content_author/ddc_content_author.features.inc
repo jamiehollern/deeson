@@ -35,3 +35,38 @@ function ddc_content_author_eck_bundle_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_eck_entity_type_info().
+ */
+function ddc_content_author_eck_entity_type_info() {
+  $items = array(
+    'content_author' => array(
+      'name' => 'content_author',
+      'label' => 'Content author',
+      'properties' => array(
+        'uid' => array(
+          'label' => 'Author',
+          'type' => 'integer',
+          'behavior' => 'author',
+        ),
+        'created' => array(
+          'label' => 'Created',
+          'type' => 'integer',
+          'behavior' => 'created',
+        ),
+        'changed' => array(
+          'label' => 'Changed',
+          'type' => 'integer',
+          'behavior' => 'changed',
+        ),
+        'title' => array(
+          'label' => 'Name',
+          'type' => 'text',
+          'behavior' => 'title',
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
