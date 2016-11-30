@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Entity template functions.

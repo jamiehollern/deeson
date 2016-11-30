@@ -38,7 +38,7 @@ function ddc_article_field_default_field_instances() {
           'trim_length' => 400,
         ),
         'type' => 'text_trimmed',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -58,6 +58,55 @@ function ddc_article_field_default_field_instances() {
       ),
       'type' => 'text_textarea_with_summary',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-article-field_article_special_article'
+  $field_instances['node-article-field_article_special_article'] = array(
+    'bundle' => 'article',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_key',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_article_special_article',
+    'label' => 'Special article',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 6,
     ),
   );
 
@@ -94,7 +143,7 @@ function ddc_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'node',
@@ -151,7 +200,7 @@ function ddc_article_field_default_field_instances() {
           'image_style' => 'teaser',
         ),
         'type' => 'image',
-        'weight' => -1,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
@@ -205,7 +254,7 @@ function ddc_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'node',
@@ -253,7 +302,7 @@ function ddc_article_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -280,6 +329,7 @@ function ddc_article_field_default_field_instances() {
   t('Body');
   t('Enter a comma-separated list of words to describe your content.');
   t('Image');
+  t('Special article');
   t('Subtitle');
   t('Tags');
   t('Upload an image to go with this article.');

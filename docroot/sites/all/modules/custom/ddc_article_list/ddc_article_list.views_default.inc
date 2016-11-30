@@ -32,7 +32,7 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-6';
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-6 [field_article_special_article]';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Content: Tags (field_tags) */
   $handler->display->display_options['relationships']['field_tags_tid']['id'] = 'field_tags_tid';
@@ -47,7 +47,7 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_wrapper_class'] = 'pull-left';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'thumbnail',
+    'image_style' => 'teaser',
     'image_link' => 'content',
   );
   /* Field: Content: Title */
@@ -57,6 +57,8 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h1';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -78,6 +80,19 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  /* Field: Content: Special article */
+  $handler->display->display_options['fields']['field_article_special_article']['id'] = 'field_article_special_article';
+  $handler->display->display_options['fields']['field_article_special_article']['table'] = 'field_data_field_article_special_article';
+  $handler->display->display_options['fields']['field_article_special_article']['field'] = 'field_article_special_article';
+  $handler->display->display_options['fields']['field_article_special_article']['label'] = '';
+  $handler->display->display_options['fields']['field_article_special_article']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['alter']['text'] = 'special-article';
+  $handler->display->display_options['fields']['field_article_special_article']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_special_article']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['type'] = 'list_key';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

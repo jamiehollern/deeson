@@ -10,62 +10,29 @@
 function ddc_article_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_author_information'
-  $field_bases['field_author_information'] = array(
+  // Exported field_base: 'field_article_special_article'
+  $field_bases['field_article_special_article'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_author_information',
+    'field_name' => 'field_article_special_article',
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
-    'module' => 'entityreference',
+    'module' => 'list',
     'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'direction' => 'ASC',
-          'property' => 'title',
-          'type' => 'property',
-        ),
-        'target_bundles' => array(
-          'content_author' => 'content_author',
-        ),
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
       ),
-      'target_type' => 'content_author',
+      'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_subtitle'
-  $field_bases['field_subtitle'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_subtitle',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
+    'type' => 'list_boolean',
   );
 
   return $field_bases;
