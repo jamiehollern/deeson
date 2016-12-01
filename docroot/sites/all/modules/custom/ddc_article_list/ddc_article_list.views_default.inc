@@ -92,6 +92,7 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['fields']['field_article_special_article']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_article_special_article']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_special_article']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_article_special_article']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_article_special_article']['type'] = 'list_key';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
