@@ -39,6 +39,10 @@ $conf['master_modules'] = array(
     'features',
     'fe_block',
     'admin_views',
+    'acquia_agent',
+    'xautoload',
+    'date',
+    'conditional_fields',
 
     //Features
     'ddc_article',
@@ -52,7 +56,10 @@ $conf['master_modules'] = array(
     'ddc_permission',
     'ddc_system',
 
-    // Theme.
+    //Custom
+    'ddc_scheduled_access',
+
+    // Theme
     'ddc_theme',
   ),
   'local' => $master_local_modules,
