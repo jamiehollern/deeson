@@ -18,35 +18,46 @@ function ddc_scheduled_access_node_grants($account, $op) {
  * Implements hook_node_access_records().
  */
 function ddc_scheduled_access_node_access_records($node) {
-  $node_wrapper = new NodeWrapper($node->nid);
+  $node_wrapper = new NodeWrapper($node);
   return $node_wrapper->setAccessRecords();
 }
 
 /**
- * Implements hook_node_update().
- *
- * If an article is updated then node access may need to be rebuilt.
+ * Implements hook_node_load().
  */
-function ddc_scheduled_access_node_update($node) {
-  $node_wrapper = new NodeWrapper($node);
-  return $node_wrapper->needsRebuild();
+function ddc_scheduled_access_node_load($nodes, $types) {
+  foreach ($nodes as $node) {
+    $node_wrapper = new NodeWrapper($node);
+    return $node_wrapper->verifyGrants();
+  }
 }
 
 /**
  * Implements hook_cron().
  */
 function ddc_scheduled_access_cron() {
+  $nodes = _ddc_get_scheduled_nodes();
+  foreach ($nodes as $node) {
+    $node_wrapper = new NodeWrapper($node->nid);
+    $node_wrapper->verifyGrants();
+  }
+}
+
+/**
+ * Helper function to get nodes
+ *
+ * @return array
+ *   An array of skeleton nodes.
+ */
+function _ddc_get_scheduled_nodes() {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', NodeWrapper::DDC_SCHEDULED_ACCESS_BUNDLE)
     ->fieldCondition('field_access_date', 'value', time(), '<=')
-    ->fieldCondition('field_limit_access', 'value', '1', '=')
-  ;
+    ->fieldCondition('field_limit_access', 'value', '1', '=');
   $result = $query->execute();
   if (isset($result['node'])) {
-    $nids = array_keys($result['node']);
-    foreach ($nids as $nid) {
-      $node_wrapper = new NodeWrapper($nid);
-      $node_wrapper->removeScheduleFields();
-    }
+    return $result['node'];
   }
+  return [];
 }

@@ -14,7 +14,7 @@ class UserWrapper extends EntityDrupalWrapper {
   /**
    * UserWrapper constructor.
    *
-   * @param $user
+   * @param \stdClass $user
    */
   public function __construct($user) {
     parent::__construct('user', $user);
@@ -24,7 +24,7 @@ class UserWrapper extends EntityDrupalWrapper {
    * Returns an array of grants based on the user ID and the operation.
    *
    * @param string $op
-   *
+   *   User action on the node.
    * @return array
    *   Array of UIDs keyed by grant IDs.
    */

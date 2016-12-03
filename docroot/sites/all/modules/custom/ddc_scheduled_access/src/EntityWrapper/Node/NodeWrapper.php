@@ -26,12 +26,20 @@ class NodeWrapper extends EntityDrupalWrapper {
   const DDC_SCHEDULED_ACCESS_BUNDLE = 'article';
 
   /**
+   * @var \stdClass
+   */
+  protected $node_object;
+
+  /**
    * NodeWrapper constructor.
    *
-   * @param \stdClass|int $node
+   * @param \stdClass $node
    */
   public function __construct($node) {
     parent::__construct('node', $node);
+    if (is_object($node)) {
+      $this->node_object = $node;
+    }
   }
 
   /**
@@ -45,7 +53,7 @@ class NodeWrapper extends EntityDrupalWrapper {
       return NULL;
     }
     // Ignore the node unless it's access is scheduled.
-    if (!$this->nodeAccessScheduled()) {
+    if (!$this->hasScheduledAccess()) {
       return NULL;
     }
     return [
@@ -62,34 +70,55 @@ class NodeWrapper extends EntityDrupalWrapper {
   }
 
   /**
-   * Checks if the current node access is scheduled.
+   * Checks if the node has scheduled field values.
+   *
+   * @return int
+   *   Timestamp of the scheduled access date or 0 if it has no values.
+   */
+  public function hasScheduledValues() {
+    $access = $this->field_limit_access->value();
+    $date = $this->field_access_date->value();
+    if ($access && $date) {
+      return $date;
+    }
+    return 0;
+  }
+
+  /**
+   * Checks if the current node access is scheduled in the future.
    *
    * @return bool
    */
-  public function nodeAccessScheduled() {
-    $access = $this->field_limit_access->value();
-    $date = $this->field_access_date->value();
-    if ($access && $date && time() < $date) {
+  public function hasScheduledAccess() {
+    $scheduled = $this->hasScheduledValues();
+    if ($scheduled && time() < $scheduled) {
       return TRUE;
     }
     return FALSE;
   }
 
   /**
-   * Removes out-of-date schedule field values from the node.
+   * Checks if the scheduled access date has expired, if the node has one.
+   *
+   * @return bool
    */
-  public function removeScheduleFields() {
-    $this->field_limit_access->set(0);
-    $this->field_access_date->set(NULL);
-    $this->save();
+  public function scheduledAccessExpired() {
+    $scheduled = $this->hasScheduledValues();
+    if ($scheduled && time() >= $scheduled) {
+      return TRUE;
+    }
+    return FALSE;
   }
 
   /**
-   * Set the node access rebuild status.
+   * Checks the grants on the node and updates them.
    */
-  public function needsRebuild() {
-    if ($this->getBundle() == self::DDC_SCHEDULED_ACCESS_BUNDLE) {
-      node_access_needs_rebuild(TRUE);
+  public function verifyGrants() {
+    if ($this->getBundle() != self::DDC_SCHEDULED_ACCESS_BUNDLE) {
+      return NULL;
+    }
+    if ($this->scheduledAccessExpired()) {
+      node_access_acquire_grants($this->node_object);
     }
   }
 
