@@ -639,7 +639,7 @@ if (file_exists('/var/www/site-php')) {
 }
 
 // Master settings.
-if (file_exists('sites/all/default/local.settings.php')) {
+if (file_exists('sites/all/conf/master.settings.inc')) {
   require_once 'sites/all/conf/master.settings.inc';
 }
 
