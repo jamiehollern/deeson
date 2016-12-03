@@ -43,6 +43,7 @@ $conf['master_modules'] = array(
     'xautoload',
     'date',
     'conditional_fields',
+    'views_show_more',
 
     //Features
     'ddc_article',
