@@ -1,5 +1,4 @@
 <?php
-
 namespace Drupal\ddc_scheduled_access\EntityWrapper\User;
 
 use \EntityDrupalWrapper;
@@ -32,22 +31,11 @@ class UserWrapper extends EntityDrupalWrapper {
   public function nodeGrants($op) {
     $grants = [];
     $uid = $this->uid->value();
-    $node_wrapper = $this->getNodeWrapper();
-    if ($node_wrapper) {
-      $restricted = $node_wrapper->nodeAccessScheduled();
-      // Give grant if the user is not anonymous and the operation is "view".
-      if ((!$restricted) || ($restricted && $uid && $op == 'view')) {
-        $grants['ddc_scheduled_access_registered'] = [NodeWrapper::DDC_SCHEDULED_ACCESS_GRANT];
-      }
+    // Give grant if the user is not anonymous and the operation is "view".
+    if ($uid && $op == 'view') {
+      $grants[NodeWrapper::DDC_SCHEDULED_ACCESS_REALM] = [NodeWrapper::DDC_SCHEDULED_ACCESS_GRANT];
     }
     return $grants;
-  }
-
-  public function getNodeWrapper() {
-    if (arg(0) == 'node' && is_numeric(arg(1))) {
-      $nid = arg(1);
-      return new NodeWrapper($nid);
-    }
   }
 
 }

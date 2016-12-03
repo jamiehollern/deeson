@@ -10,7 +10,20 @@ use \EntityDrupalWrapper;
  */
 class NodeWrapper extends EntityDrupalWrapper {
 
+  /**
+   * Grant ID.
+   */
   const DDC_SCHEDULED_ACCESS_GRANT = 1;
+
+  /**
+   * Grant realm.
+   */
+  const DDC_SCHEDULED_ACCESS_REALM = 'ddc_scheduled_access_registered';
+
+  /**
+   * Content type/bundle of node.
+   */
+  const DDC_SCHEDULED_ACCESS_BUNDLE = 'article';
 
   /**
    * NodeWrapper constructor.
@@ -21,35 +34,63 @@ class NodeWrapper extends EntityDrupalWrapper {
     parent::__construct('node', $node);
   }
 
-  public function accessRecords() {
+  /**
+   * Sets the access record for the node.
+   *
+   * @return array|null
+   */
+  public function setAccessRecords() {
     // Ignore the node unless it's an article.
-    if ($this->getBundle() == 'article') {
-      return [
-        [
-          'realm' => 'ddc_scheduled_access_registered',
-          'gid' => self::DDC_SCHEDULED_ACCESS_GRANT,
-          // Only published nodes should be viewable.
-          'grant_view' => $this->status->value(),
-          'grant_update' => 0,
-          'grant_delete' => 0,
-          'priority' => 0,
-        ],
-      ];
+    if ($this->getBundle() != self::DDC_SCHEDULED_ACCESS_BUNDLE) {
+      return NULL;
     }
+    // Ignore the node unless it's access is scheduled.
+    if (!$this->nodeAccessScheduled()) {
+      return NULL;
+    }
+    return [
+      [
+        'realm' => self::DDC_SCHEDULED_ACCESS_REALM,
+        'gid' => self::DDC_SCHEDULED_ACCESS_GRANT,
+        // Only published nodes should be viewable.
+        'grant_view' => $this->status->value(),
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'priority' => 0,
+      ],
+    ];
   }
 
   /**
-   * Checks if the current node access is limited.
+   * Checks if the current node access is scheduled.
    *
    * @return bool
    */
   public function nodeAccessScheduled() {
-    $limit = $this->field_limit_access->value();
+    $access = $this->field_limit_access->value();
     $date = $this->field_access_date->value();
-    if ($limit && $date && time() < $date) {
+    if ($access && $date && time() < $date) {
       return TRUE;
     }
     return FALSE;
+  }
+
+  /**
+   * Removes out-of-date schedule field values from the node.
+   */
+  public function removeScheduleFields() {
+    $this->field_limit_access->set(0);
+    $this->field_access_date->set(NULL);
+    $this->save();
+  }
+
+  /**
+   * Set the node access rebuild status.
+   */
+  public function needsRebuild() {
+    if ($this->getBundle() == self::DDC_SCHEDULED_ACCESS_BUNDLE) {
+      node_access_needs_rebuild(TRUE);
+    }
   }
 
 }
