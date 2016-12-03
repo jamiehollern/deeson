@@ -57,6 +57,7 @@ $conf['master_modules'] = array(
     'ddc_homepage',
     'ddc_image',
     'ddc_permission',
+    'ddc_search',
     'ddc_system',
 
     //Custom

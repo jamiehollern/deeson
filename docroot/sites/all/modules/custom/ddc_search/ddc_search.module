@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ddc_search feature.
+ */
+
+include_once 'ddc_search.features.inc';
