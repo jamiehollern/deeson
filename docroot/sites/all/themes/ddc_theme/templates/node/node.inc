@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Node template functions.
@@ -22,6 +23,12 @@ function ddc_theme_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * Preprocess the teaser display mode of the article node.
+ *
+ * @param array $variables
+ *   Drupal theme variables.
+ */
 function ddc_theme_preprocess_node__article__teaser(&$variables) {
   // Create linked title.
   $variables['linked_title'] = l($variables['title'], 'node/' . $variables['nid']);
