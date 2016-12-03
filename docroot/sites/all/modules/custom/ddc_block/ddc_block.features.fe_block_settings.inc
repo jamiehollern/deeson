@@ -210,10 +210,10 @@ function ddc_block_default_fe_block_settings() {
         'weight' => 0,
       ),
       'ddc_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'header',
+        'status' => 1,
         'theme' => 'ddc_theme',
-        'weight' => 0,
+        'weight' => -11,
       ),
     ),
     'title' => '',
