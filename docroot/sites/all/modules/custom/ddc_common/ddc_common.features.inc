@@ -1,6 +1,3 @@
 <?php
-/**
- * @file
- * ddc_common.features.inc
- */
 
+// This file is deprecated and can be removed.

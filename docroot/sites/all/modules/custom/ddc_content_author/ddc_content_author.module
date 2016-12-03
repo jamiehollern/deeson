@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ddc_content_author feature.
+ */
+
+include_once 'ddc_content_author.features.inc';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Template file for article teasers.
@@ -6,7 +7,7 @@
 ?>
 <div class="contextual-links-region">
   <?php print render($title_suffix); ?>
-  <article>
+  <article class="<?php print $special_article; ?>">
     <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
       <div class="media">
         <div class="pull-left">

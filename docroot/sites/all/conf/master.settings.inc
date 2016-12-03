@@ -38,16 +38,32 @@ $conf['master_modules'] = array(
     'strongarm',
     'features',
     'fe_block',
+    'admin_views',
+    'acquia_agent',
+    'xautoload',
+    'date',
+    'conditional_fields',
+    'views_show_more',
+    'acquia_search',
 
     //Features
     'ddc_article',
+    'ddc_article_list',
     'ddc_block',
+    'ddc_blog',
     'ddc_common',
+    'ddc_content_author',
     'ddc_filter',
     'ddc_homepage',
     'ddc_image',
     'ddc_permission',
     'ddc_system',
+
+    //Custom
+    'ddc_scheduled_access',
+
+    // Theme
+    'ddc_theme',
   ),
   'local' => $master_local_modules,
   'dev' => $master_local_modules,

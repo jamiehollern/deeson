@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Template file for article full view.
@@ -12,6 +13,8 @@
       </div>
       <div class="media-body">
         <h1><?php print $title; ?></h1>
+        <h3><?php print render($content['field_subtitle']); ?></h3>
+        <?php print render($content['field_author_information']); ?>
         <?php print render($content['body']); ?>
       </div>
     </div>
