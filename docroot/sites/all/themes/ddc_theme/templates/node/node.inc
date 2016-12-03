@@ -38,3 +38,14 @@ function ddc_theme_preprocess_node__article__teaser(&$variables) {
   $special = isset($value[0]['value']) ? $value[0]['value'] : 0;
   $variables['special_article'] = $special ? 'special-article' : '';
 }
+
+/**
+ * Preprocess the teaser display mode of the blog node.
+ *
+ * @param array $variables
+ *   Drupal theme variables.
+ */
+function ddc_theme_preprocess_node__blog__teaser(&$variables) {
+  // Create linked title.
+  $variables['linked_title'] = l($variables['title'], 'node/' . $variables['nid']);
+}
