@@ -1,5 +1,0 @@
-name = Scheduled Access
-description = Provides access checking and management for scheduled nodes.
-core = 7.x
-package = Custom
-dependencies[] = ddc_article

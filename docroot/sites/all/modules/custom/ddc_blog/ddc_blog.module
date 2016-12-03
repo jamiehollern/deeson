@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the ddc_blog feature.
- */
-
-include_once 'ddc_blog.features.inc';
