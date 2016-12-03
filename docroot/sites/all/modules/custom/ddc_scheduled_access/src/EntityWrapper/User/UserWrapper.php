@@ -29,14 +29,22 @@ class UserWrapper extends EntityDrupalWrapper {
    * @return array
    *   Array of UIDs keyed by grant IDs.
    */
-  public function nodeGrants($op, $grants = []) {
+  public function nodeGrants($op) {
     $grants = [];
     $uid = $this->uid->value();
+    $restricted = $this->getNodeWrapper()->nodeAccessScheduled();
     // Give grant if the user is not anonymous and the operation is "view".
-    if (TRUE || $uid && $op == 'view') {
+    if ((!$restricted) || ($restricted && $uid && $op == 'view'))   {
       $grants['ddc_scheduled_access_registered'] = [NodeWrapper::DDC_SCHEDULED_ACCESS_GRANT];
     }
     return $grants;
+  }
+
+  public function getNodeWrapper() {
+    if (arg(0) == 'node' && is_numeric(arg(1))) {
+      $nid = arg(1);
+      return new NodeWrapper($nid);
+    }
   }
 
 }

@@ -22,8 +22,8 @@ class NodeWrapper extends EntityDrupalWrapper {
   }
 
   public function accessRecords() {
-    // Ignore the node unless access is scheduled.
-    if ($this->nodeAccessScheduled()) {
+    // Ignore the node unless it's an article.
+    if ($this->getBundle() == 'article') {
       return [
         [
           'realm' => 'ddc_scheduled_access_registered',
