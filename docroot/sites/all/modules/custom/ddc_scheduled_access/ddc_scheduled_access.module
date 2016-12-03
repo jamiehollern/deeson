@@ -40,7 +40,7 @@ function ddc_scheduled_access_node_load($nodes, $types) {
 function ddc_scheduled_access_cron() {
   $nodes = _ddc_get_scheduled_nodes();
   foreach ($nodes as $node) {
-    $node_wrapper = new NodeWrapper($node->nid);
+    $node_wrapper = new NodeWrapper($node);
     $node_wrapper->verifyGrants();
   }
 }
