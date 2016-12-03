@@ -1,10 +1,11 @@
 <?php
+
 namespace Drupal\ddc_scheduled_access\EntityWrapper\Node;
 
 use \EntityDrupalWrapper;
 
 /**
- * Class NodeWrapper
+ * Class NodeWrapper.
  *
  * @package Drupal\ddc_scheduled_access\EntityWrapper\Node
  */
@@ -26,19 +27,22 @@ class NodeWrapper extends EntityDrupalWrapper {
   const DDC_SCHEDULED_ACCESS_BUNDLE = 'article';
 
   /**
+   * Property to store the raw node object.
+   *
    * @var \stdClass
    */
-  protected $node_object;
+  protected $nodeObject;
 
   /**
    * NodeWrapper constructor.
    *
    * @param \stdClass $node
+   *   Drupal node object.
    */
-  public function __construct($node) {
+  public function __construct(\stdClass $node) {
     parent::__construct('node', $node);
     if (is_object($node)) {
-      $this->node_object = $node;
+      $this->nodeObject = $node;
     }
   }
 
@@ -46,6 +50,7 @@ class NodeWrapper extends EntityDrupalWrapper {
    * Sets the access record for the node.
    *
    * @return array|null
+   *   Returns an array of grants or null.
    */
   public function setAccessRecords() {
     // Ignore the node unless it's an article.
@@ -88,6 +93,7 @@ class NodeWrapper extends EntityDrupalWrapper {
    * Checks if the current node access is scheduled in the future.
    *
    * @return bool
+   *   True if the node has scheduled access, otherwise false.
    */
   public function hasScheduledAccess() {
     $scheduled = $this->hasScheduledValues();
@@ -101,6 +107,7 @@ class NodeWrapper extends EntityDrupalWrapper {
    * Checks if the scheduled access date has expired, if the node has one.
    *
    * @return bool
+   *   Returns true if the node has scheduled access but it has now expired.
    */
   public function scheduledAccessExpired() {
     $scheduled = $this->hasScheduledValues();
@@ -118,7 +125,7 @@ class NodeWrapper extends EntityDrupalWrapper {
       return NULL;
     }
     if ($this->scheduledAccessExpired()) {
-      node_access_acquire_grants($this->node_object);
+      node_access_acquire_grants($this->nodeObject);
     }
   }
 

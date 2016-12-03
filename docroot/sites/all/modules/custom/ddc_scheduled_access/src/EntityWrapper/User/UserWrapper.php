@@ -1,11 +1,12 @@
 <?php
+
 namespace Drupal\ddc_scheduled_access\EntityWrapper\User;
 
 use \EntityDrupalWrapper;
 use Drupal\ddc_scheduled_access\EntityWrapper\Node\NodeWrapper;
 
 /**
- * Class UserWrapper
+ * Class UserWrapper.
  *
  * @package Drupal\ddc_scheduled_access\EntityWrapper\User
  */
@@ -15,8 +16,9 @@ class UserWrapper extends EntityDrupalWrapper {
    * UserWrapper constructor.
    *
    * @param \stdClass $user
+   *   Drupal user object.
    */
-  public function __construct($user) {
+  public function __construct(\stdClass $user) {
     parent::__construct('user', $user);
   }
 
@@ -25,6 +27,7 @@ class UserWrapper extends EntityDrupalWrapper {
    *
    * @param string $op
    *   User action on the node.
+   *
    * @return array
    *   Array of UIDs keyed by grant IDs.
    */

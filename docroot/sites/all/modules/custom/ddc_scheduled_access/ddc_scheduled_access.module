@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @file
  * Provides hooks and helper functions.
  */
+
 use \Drupal\ddc_scheduled_access\EntityWrapper\Node\NodeWrapper;
 use \Drupal\ddc_scheduled_access\EntityWrapper\User\UserWrapper;
 
@@ -44,7 +46,7 @@ function ddc_scheduled_access_cron() {
 }
 
 /**
- * Helper function to get nodes
+ * Helper function to get nodes.
  *
  * @return array
  *   An array of skeleton nodes.
