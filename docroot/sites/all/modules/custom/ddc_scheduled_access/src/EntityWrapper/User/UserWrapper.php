@@ -32,10 +32,13 @@ class UserWrapper extends EntityDrupalWrapper {
   public function nodeGrants($op) {
     $grants = [];
     $uid = $this->uid->value();
-    $restricted = $this->getNodeWrapper()->nodeAccessScheduled();
-    // Give grant if the user is not anonymous and the operation is "view".
-    if ((!$restricted) || ($restricted && $uid && $op == 'view'))   {
-      $grants['ddc_scheduled_access_registered'] = [NodeWrapper::DDC_SCHEDULED_ACCESS_GRANT];
+    $node_wrapper = $this->getNodeWrapper();
+    if ($node_wrapper) {
+      $restricted = $node_wrapper->nodeAccessScheduled();
+      // Give grant if the user is not anonymous and the operation is "view".
+      if ((!$restricted) || ($restricted && $uid && $op == 'view')) {
+        $grants['ddc_scheduled_access_registered'] = [NodeWrapper::DDC_SCHEDULED_ACCESS_GRANT];
+      }
     }
     return $grants;
   }
