@@ -44,6 +44,7 @@ $conf['master_modules'] = array(
     'date',
     'conditional_fields',
     'views_show_more',
+    'acquia_search',
 
     //Features
     'ddc_article',
