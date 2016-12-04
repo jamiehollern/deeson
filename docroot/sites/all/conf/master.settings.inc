@@ -45,6 +45,7 @@ $conf['master_modules'] = array(
     'conditional_fields',
     'views_show_more',
     'acquia_search',
+    'apachesolr_access',
 
     //Features
     'ddc_article',
