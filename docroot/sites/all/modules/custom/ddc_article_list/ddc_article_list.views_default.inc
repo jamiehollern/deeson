@@ -465,7 +465,7 @@ function ddc_article_list_views_default_views() {
   $handler->display->display_options['filters']['tid']['relationship'] = 'field_tags_tid';
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Term';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Filter by tag';
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
   $handler->display->display_options['filters']['tid']['expose']['remember_roles'] = array(
