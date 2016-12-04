@@ -21,12 +21,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -47,12 +41,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -73,12 +61,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -99,12 +81,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -125,12 +101,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -151,12 +121,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -177,12 +141,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -203,12 +161,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => 'header',
         'status' => 1,
@@ -229,12 +181,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -255,12 +201,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'help',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 5,
-      ),
       'ddc_theme' => array(
         'region' => 'help',
         'status' => 1,
@@ -281,12 +221,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => 'content',
         'status' => 1,
@@ -307,12 +241,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -333,12 +261,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -359,12 +281,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -385,12 +301,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 10,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -411,12 +321,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -437,12 +341,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -463,12 +361,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
@@ -489,12 +381,6 @@ function ddc_block_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'ddc_theme' => array(
         'region' => '',
         'status' => 0,
